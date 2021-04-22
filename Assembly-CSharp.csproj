@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\FrogController.cs" />
+     <Compile Include="Assets\Scripts\FrogSpawner.cs" />
      <Compile Include="Assets\Scripts\GemController.cs" />
      <Compile Include="Assets\Scripts\GemCounterController.cs" />
      <Compile Include="Assets\Scripts\GemSpawnerController.cs" />
