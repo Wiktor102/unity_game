@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FrogSpawner : MonoBehaviour {
+    public GameObject PlayerReference;
     public GameObject FrogPrefab;
     public GameObject SpawnArea;
     private PolygonCollider2D _spawnColider;
@@ -14,10 +15,6 @@ public class FrogSpawner : MonoBehaviour {
         _spawnColider = GetComponent<PolygonCollider2D>();
         _bounds = _spawnColider.bounds;
         SpawnFrog();
-    }
-
-    void Update () {
-        
     }
 
     public void SpawnFrog () {

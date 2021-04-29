@@ -238,17 +238,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.0557222, y: 0.5823276}
-      - {x: -15.558409, y: 1.2146792}
-      - {x: -15.569284, y: -1.5508568}
-      - {x: -13.361516, y: -1.5408559}
-      - {x: -9.070146, y: -1.3109784}
-      - {x: -8.669121, y: -2.200726}
-      - {x: -7.82209, y: -1.8717526}
-      - {x: -6.7028112, y: -1.8202441}
-      - {x: -5.399894, y: -2.1571124}
-      - {x: -1.7983817, y: -2.0717797}
-      - {x: -1.6571109, y: -0.95412457}
+    - - {x: 5.194098, y: 1.5042813}
+      - {x: 0.42731184, y: -0.46421456}
+      - {x: 1.580625, y: -2.4899554}
+      - {x: 8.9924755, y: -2.4899552}
+      - {x: 9.002752, y: -0.46421403}
 --- !u!4 &138941139
 Transform:
   m_ObjectHideFlags: 0
@@ -275,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4556ac69a384e44080c57eb83460771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerReference: {fileID: 2120324617}
   FrogPrefab: {fileID: 3574764668259217256, guid: 430ad8ab265bd334184c5e40044e5c70,
     type: 3}
   SpawnArea: {fileID: 138941137}
@@ -799,7 +794,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734772410}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.22, y: -1.58, z: 0}
+  m_LocalPosition: {x: 0, y: -1.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2120324619}
@@ -3616,15 +3611,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 5.909977, y: 2.6255019}
-      - {x: 2.4083903, y: 2.6175077}
-      - {x: 0.11268985, y: 2.7835371}
-      - {x: -2.3327062, y: 2.8588767}
-      - {x: -7.7962236, y: 2.8166919}
-      - {x: -17.863173, y: 2.9697607}
-      - {x: -17.79149, y: 0.06574774}
-      - {x: 12.725146, y: -0.15294313}
-      - {x: 13.015518, y: 2.6417236}
+    - - {x: -0.094599724, y: 0.17225361}
+      - {x: -17.499771, y: 0.1557095}
+      - {x: -17.497082, y: -0.80901706}
+      - {x: 11.348247, y: -0.80901694}
+      - {x: 11.35701, y: 0.16711754}
 --- !u!4 &1860538482
 Transform:
   m_ObjectHideFlags: 0
@@ -3633,7 +3624,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860538480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9813125, y: 1.9158852, z: 0}
+  m_LocalPosition: {x: 1.64, y: 2.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3915,7 +3906,7 @@ MonoBehaviour:
   playerBody: {fileID: 2120324621}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   groundChecker: {fileID: 734772411}
   HealthBar: {fileID: 1466784816}
   playerSpeed: 250

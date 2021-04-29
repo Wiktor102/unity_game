@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         playerSpeed = 5f;
         verticalPlayerSpeed = 5f;
         groundCheckRange = 0.1f;
+        jumpForce = 10;
 
         Health = 100;
         IsHurt = false;
@@ -62,35 +63,32 @@ public class PlayerController : MonoBehaviour
     }
 
     void MovePlayer () {
+        var grounded = IsGrounded();
         var yMovement = playerBody.velocity.y;
 
-        if (jumpPressed)  {
-            // Debug.Log("jump pressed!");
+        if (jumpPressed && grounded)  {
             yMovement += jumpForce;
             _animator.SetBool("jumping", true);
-            // Debug.Log("Setting jumping to true");
         }
 
-        if (!groundedMemory && IsGrounded()) {
+        if (!groundedMemory && grounded) {
             _animator.SetBool("jumping", false);
-            Debug.Log("Setting jumping to false");
         }
 
-        _animator.SetBool("grounded", IsGrounded());
+        _animator.SetBool("grounded", grounded);
         _animator.SetFloat("vertical_speed", yMovement);
         _animator.SetFloat("speed", Math.Abs(horizontalMovement));
 
         var playerPosition = horizontalMovement * playerSpeed;
         playerBody.velocity = new Vector2(playerPosition, yMovement);
 
-        groundedMemory = IsGrounded();
+        groundedMemory = grounded;
     }
 
     public void IsClimbing (bool isClimbing) {
         _animator.SetBool("climbing", isClimbing);
         Debug.Log($"setting climbing flag to {isClimbing}");
     }
-
 
     void BetterFall () {
         if (playerBody.velocity.y < 0 && enableShortJump) {
@@ -100,8 +98,9 @@ public class PlayerController : MonoBehaviour
             playerBody.velocity += Vector2.up * Physics2D.gravity * lowJumpFallMultiplier * Time.deltaTime;
         }
     }
-    void OnCollisionExit2D(Collision2D col) {
-        if(col.gameObject.name == "Frog"){
+
+    void OnCollisionExit2D (Collision2D col) {
+        if (col.gameObject.name.Contains("Frog")){
             IsHurt = false;
             _animator.SetBool("hurt", false);
         }
@@ -110,5 +109,5 @@ public class PlayerController : MonoBehaviour
         _renderer.flipX = horizontalMovement < 0;
         _animator.SetFloat("speed", Math.Abs(horizontalMovement));
     }
-    private bool IsGrounded() => Physics2D.OverlapCircle(groundChecker.position, groundCheckRange, groundLayer) != null;
+    private bool IsGrounded () => Physics2D.OverlapCircle(groundChecker.position, groundCheckRange, groundLayer) != null;
 }

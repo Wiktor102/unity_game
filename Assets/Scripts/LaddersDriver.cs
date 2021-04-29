@@ -1,42 +1,22 @@
 ﻿using UnityEngine;
 
-public class LaddersDriver : MonoBehaviour
-{
-
+public class LaddersDriver : MonoBehaviour {
     private readonly string _playerName = "Player";
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    void OnTriggerStay2D (Collider2D other) {
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-
-        if (IsPlayer(other))
-        {
+        if (IsPlayer(other)) {
             var script = other.GetComponentInParent<PlayerController>();
             var vel = other.GetComponent<Rigidbody2D>().velocity;
 
-            if (Input.GetKey(KeyCode.W))
-            {
+            if (Input.GetKey(KeyCode.UpArrow)){
                 other.GetComponent<Rigidbody2D>().velocity = new Vector2(vel.x, script.verticalPlayerSpeed);
                 script.IsClimbing(true);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
+            } else if (Input.GetKey(KeyCode.DownArrow)) {
                 other.GetComponent<Rigidbody2D>().velocity = new Vector2(vel.x, -script.verticalPlayerSpeed);
                 script.IsClimbing(true);
-            }
-            else
-            {
+            } else {
                 other.GetComponent<Rigidbody2D>().velocity = new Vector2(vel.x, 0);
             }
         }

@@ -32,9 +32,8 @@ public class FrogController : MonoBehaviour {
 
         _currentInterval = UnityEngine.Random.Range(JumpMaxInterval, JumpMinInterval);
 
-        var frogSpawner = GetComponentInParent<GameObject>();
-        var sceneGameObjects = frogSpawner.GetComponentsInParent<GameObject>();
-        var player = sceneGameObjects.ToList().Where(x => x.name == "Player").FirstOrDefault();
+        var frogSpawner = this.transform.parent.GetComponent<FrogSpawner>();
+        var player = frogSpawner.PlayerReference;
 
         _playerTransform = player.GetComponent<Transform>();
         _frogTransform = GetComponent<Transform>();
