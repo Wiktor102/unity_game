@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
     public void IsClimbing (bool isClimbing) {
         _animator.SetBool("climbing", isClimbing);
-        Debug.Log($"setting climbing flag to {isClimbing}");
+        // Debug.Log($"setting climbing flag to {isClimbing}");
     }
 
     void BetterFall () {

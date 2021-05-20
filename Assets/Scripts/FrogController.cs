@@ -18,7 +18,7 @@ public class FrogController : MonoBehaviour {
     private Rigidbody2D _frogRigidbody;
     private SpriteRenderer _frogRenderer;
     private Animator _frogAnimator;
-    private bool _grounded;
+    // private bool _grounded;
     private int _direction;
 
     void Start () {
@@ -28,7 +28,7 @@ public class FrogController : MonoBehaviour {
         JumpXSpeed = 3.5f;
         JumpMaxInterval = 4;
         JumpMinInterval = 2.5f;
-        _grounded = true;
+        // _grounded = true;
 
         _currentInterval = UnityEngine.Random.Range(JumpMaxInterval, JumpMinInterval);
 
