@@ -6,11 +6,11 @@ public class FrogSpawner : MonoBehaviour {
     public GameObject FrogPrefab;
     public GameObject SpawnArea;
     private PolygonCollider2D _spawnColider;
-    private List<GameObject> _frogList;
+    public List<GameObject> FrogList;
     private Bounds _bounds;
 
     void Start () {
-        _frogList = new List<GameObject>();
+        FrogList = new List<GameObject>();
         _spawnColider = GetComponent<PolygonCollider2D>();
         _bounds = _spawnColider.bounds;
         SpawnFrog();
@@ -23,6 +23,6 @@ public class FrogSpawner : MonoBehaviour {
         var newFrog = Instantiate(FrogPrefab, newPosition, new Quaternion());
 
         newFrog.transform.parent = SpawnArea.transform;
-        _frogList.Add(newFrog);
+        FrogList.Add(newFrog);
     }
 }

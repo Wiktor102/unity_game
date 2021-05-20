@@ -36,12 +36,15 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\DTOs\GameStateDTO.cs" />
+     <Compile Include="Assets\DTOs\PointDTO.cs" />
      <Compile Include="Assets\Scripts\FrogController.cs" />
      <Compile Include="Assets\Scripts\FrogSpawner.cs" />
      <Compile Include="Assets\Scripts\GemController.cs" />
      <Compile Include="Assets\Scripts\GemCounterController.cs" />
      <Compile Include="Assets\Scripts\GemSpawnerController.cs" />
      <Compile Include="Assets\Scripts\LaddersDriver.cs" />
+     <Compile Include="Assets\Scripts\MenuBoxController.cs" />
      <Compile Include="Assets\Scripts\MenuController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SliderController.cs" />

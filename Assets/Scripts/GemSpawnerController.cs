@@ -10,20 +10,20 @@ public class GemSpawnerController : MonoBehaviour
     public GameObject CounterControl;
 
     private GemCounterController _counterController;
-    private List<GameObject> _gemsList;
+    public List<GameObject> GemsList;
     private Bounds _bounds;
 
     void Start () {
         var collider = SpawnArea.GetComponent<PolygonCollider2D>();
         _bounds = collider.bounds;
 
-        _gemsList = new List<GameObject>();
+        GemsList = new List<GameObject>();
         _counterController = CounterControl.GetComponentInChildren<GemCounterController>();
     }
 
 
     void Update() {
-        if (_gemsList.Count < 3) {
+        if (GemsList.Count < 3) {
             SpawnGem();
         }
     }
@@ -31,8 +31,8 @@ public class GemSpawnerController : MonoBehaviour
     public void DeleteGem (GameObject gem) {
         // Debug.Log($"Removing gem {gem.GetInstanceID()}\r\n");
 
-        if (_gemsList.Contains(gem)) {
-            _gemsList.Remove(gem);
+        if (GemsList.Contains(gem)) {
+            GemsList.Remove(gem);
             Destroy(gem);
             _counterController.Add();
         }
@@ -50,7 +50,7 @@ public class GemSpawnerController : MonoBehaviour
         var newGem = Instantiate(GemPrefab, newPosition, new Quaternion());
 
         newGem.transform.parent = SpawnArea.transform;
-        _gemsList.Add(newGem);
+        GemsList.Add(newGem);
     }
 
     private Tuple<float, float> GetRandomPos () {
