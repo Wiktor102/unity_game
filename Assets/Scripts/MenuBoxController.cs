@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using unity_game.Assets.DTOs;
+using Newtonsoft.Json;
 
 public class MenuBoxController : MonoBehaviour {
 
@@ -18,8 +19,8 @@ public class MenuBoxController : MonoBehaviour {
 
     private void SaveGame () {
         var playerController = PlayerGameObject.GetComponentInChildren<PlayerController>();
-        var frogSpawnerController = PlayerGameObject.GetComponentInChildren<FrogSpawner>();
-        var gemSpawnerController = PlayerGameObject.GetComponentInChildren<GemSpawnerController>();
+        var frogSpawnerController = FrogSpawnerObject.GetComponentInChildren<FrogSpawner>();
+        var gemSpawnerController = GemSpawnerObject.GetComponentInChildren<GemSpawnerController>();
 
         var gemsPositions = gemSpawnerController.GemsList.Select(v => new PointDTO{X = v.transform.position.x, Y = v.transform.position.y});
         var frogsPositions = frogSpawnerController.FrogList.Select(v => new PointDTO{X = v.transform.position.x, Y = v.transform.position.y});
@@ -33,6 +34,8 @@ public class MenuBoxController : MonoBehaviour {
             Gems = gemsPositions.ToList(),
             Frogs = frogsPositions.ToList()
         };
+
+        var gameStateJson = JsonConvert.SerializeObject(gameState);
     }
 
     private bool IsEscPressed => Input.GetKeyDown(KeyCode.Escape);
